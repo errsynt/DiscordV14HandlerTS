@@ -7,13 +7,13 @@ export async function loadCommands(client: ExtendedClient) {
   client.commands = new Collection();
   const commands: ApplicationCommandDataResolvable[] = [];
 
-  const commandFolders = readdirSync(join(__dirname, '../Commands'));
+  const commandFolders = readdirSync(join(__dirname, '../commands'));
   for (const folder of commandFolders) {
-    const commandFiles = readdirSync(join(__dirname, `../Commands/${folder}`)).filter(file => file.endsWith('.ts'));
+    const commandFiles = readdirSync(join(__dirname, `../commands/${folder}`)).filter(file => file.endsWith('.ts'));
 
     for (const file of commandFiles) {
       try {
-        const { command } = await import(join(__dirname, `../Commands/${folder}/${file}`));
+        const { command } = await import(join(__dirname, `../commands/${folder}/${file}`));
         if (!command || !command.data || !command.execute) {
           console.warn(`[ WARNING ] The command file '${file}' is missing a required 'data' or 'execute' property.`);
           continue;
