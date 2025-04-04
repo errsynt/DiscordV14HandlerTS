@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "rootDir": "./src",
+    "moduleResolution": "node10",
+    "resolveJsonModule": true,
+    "outDir": "dist",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "typeRoots": ["./types", "./node_modules/@types"]
+  },  
+  "include": ["src", "config.json", "types/**/*"]
+}
